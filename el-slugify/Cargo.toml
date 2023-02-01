@@ -1,0 +1,26 @@
+[package]
+name = "el-slugify"
+version = "0.1.0"
+edition = "2018"
+authors = ["Ana Bujan <ana@eisberg-labs.com>"]
+readme = "README.md"
+repository = "https://github.com/eisberg-labs/el-slugify"
+description = "URL slug generator utility. Slugs are generated efficiently, fast, they are transliterated and sanitized for use in URLs."
+license = "MIT"
+include = ["src/", "../LICENSE-*", "../README.md"]
+
+[dependencies]
+deunicode = "1.3.3"
+
+[dev-dependencies]
+criterion = "0.4.0"
+slugify = "0.1.0"
+
+[[bench]]
+name = "benchmark_slugify"
+harness = false
+
+[lib]
+name = "el_slugify"
+path = "src/lib.rs"
+

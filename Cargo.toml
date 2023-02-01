@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "el-slugify",
+    "node-el-slugify",
+    "node-el-slugify"
+]

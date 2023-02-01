@@ -1,0 +1,10 @@
+[alias]
+lint = "clippy --all-targets -- -D warnings -A clippy::extra-unused-lifetimes"
+unit-test = "test --bins --lib"
+coverage = "tarpaulin --verbose --all-features --workspace --timeout 120 --exclude-files 'target/*' --ignore-tests --ignore-panics  --out Xml"
+# Vulnerabilities ignored until actix pushes an update
+audit-ignore = "audit --ignore RUSTSEC-2021-0079 --ignore RUSTSEC-2021-0078 --ignore RUSTSEC-2020-0071 --ignore RUSTSEC-2020-0159 --ignore RUSTSEC-2021-0124 --ignore RUSTSEC-2020-0095 --ignore RUSTSEC-2020-0016 --ignore RUSTSEC-2020-0056 --ignore RUSTSEC-2021-0131"
+
+
+[target.stable-x86_64-unknown-linux-gnu]
+linker = "rust-lld"
