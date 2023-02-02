@@ -1,5 +1,4 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion, BenchmarkId};
-use slugify::slugify;
 use el_slugify::{slugify as my_slugify_func};
 
 

@@ -73,7 +73,6 @@ fn trim_trailing_space(value: &str, replacement: char) -> String {
 #[cfg(test)]
 mod tests {
     use std::time::Instant;
-    use slugify::slugify;
     use crate::{slugify as el_slugify};
 
     #[test]
@@ -85,11 +84,6 @@ mod tests {
         let _ = el_slugify(binding.as_str());
         let elapsed = start.elapsed();
         println!(">> El slugify took: {:?}", elapsed);
-
-        let start = Instant::now();
-        let _ = slugify!(binding.as_str());
-        let elapsed = start.elapsed();
-        println!(">> Slugify took: {:?}", elapsed);
     }
 
     #[test]
