@@ -5,7 +5,7 @@ const assert = require("assert");
 const slugifier = require("..");
 
 
-describe("SQLite Database", () => {
+describe("Slugify", () => {
   it('slugifies with default replacement', () => {
     assert.strictEqual(slugifier.slugify('mačka Mački Grize rep!'), 'macka-macki-grize-rep')
   })
