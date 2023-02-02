@@ -1,5 +1,17 @@
-//! URL slug generator utility. Your string will be transliterated and sanitized for use in URLs.
+//! URL slug generator utility.
+//! Fast and efficient.
+//! Your string will be transliterated and sanitized for use in URLs.
+//!
 //! Created by Ana Bujan <ana@eisberg-labs.com>, MIT license
+//!
+//! # Examples
+//!
+//! ```rust
+//! use el_slugify::{slugify, slugify_with_replacement};
+//!
+//! assert_eq!(slugify("di su ćevapi?"), "di-su-cevapi");
+//! assert_eq!(slugify_with_replacement("di su ćevapi?", '_'), "di_su_cevapi");
+//! ```
 #![deny(missing_docs, rust_2018_idioms, elided_lifetimes_in_paths)]
 #![crate_name = "el_slugify"]
 
@@ -12,7 +24,6 @@ use deunicode::deunicode_char;
 /// ```rust
 /// use el_slugify::slugify;
 ///
-/// slugify("Wait! Listen    \n\t!!!Runagalðr$ ~Wait! Listen    \n\t!!!Runagalðr$ ~Wait! Listen    \n\t!!!Runagalðr$ ~");
 /// assert_eq!(slugify("di su ćevapi?"), "di-su-cevapi");
 /// ```
 pub fn slugify(value: &str) -> String {
@@ -34,24 +45,18 @@ fn sanitize(value: &str, replacement: char) -> String {
             // characters that need to be decoded should already be in the alphabetic range, everything else is for replacement
             let decoded_elem = deunicode_char(elem).map(|d| sanitize(d, replacement));
             if let Some(decoded) = decoded_elem {
-                out.extend(decoded.chars());
+                out.push_str(&decoded);
             }
-        } else {
-            if !out.ends_with(replacement) {
-                out.push(replacement)
-            }
+        } else if !out.ends_with(replacement) {
+            out.push(replacement)
         }
     }
-
 
     out.to_string()
 }
 
 fn is_contained_in_limited_set(value: char) -> bool {
-    match value {
-        '0'..='9' | 'a'..='z' | 'A'..='Z' => true,
-        _ => false
-    }
+    matches!(value, '0'..='9' | 'a'..='z' | 'A'..='Z')
 }
 
 fn trim_trailing_space(value: &str, replacement: char) -> String {
