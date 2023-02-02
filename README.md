@@ -8,6 +8,8 @@ What makes a good slug?
 - lowercased
 - sanitized
 
+I wrote a [blog post about it](https://www.amarjanica.com/fast-and-efficient-slugify-written-for-rust-and-node) if you're curious.
+
 You can use el_slugify in your rust and node projects.
 
 ## Example in Rust
