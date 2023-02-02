@@ -1,6 +1,6 @@
 {
   "name": "node-el-slugify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Slugifies a String - transliterate and sanitize. Fast and efficient node module written in Rust.",
   "main": "index.node",
   "keywords": [
