@@ -9,10 +9,6 @@ fn criterion_benchmark(c: &mut Criterion) {
 
     let mut group = c.benchmark_group("Slugify");
 
-    group.bench_with_input(BenchmarkId::new("slugify", 1), long_string, |bencher, input| {
-        bencher.iter(|| slugify!(input));
-    });
-
     group.bench_with_input(BenchmarkId::new("el_slugify", 1), long_string, |bencher, input| {
         bencher.iter(|| my_slugify_func(input));
     });
