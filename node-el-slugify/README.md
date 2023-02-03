@@ -32,3 +32,26 @@ const slugifier = require("node-el-slugify");
 assert.strictEqual(slugifier.slugify('mačka Mački Grize rep!'), 'macka-macki-grize-rep')
 assert.strictEqual(slugifier.slugify_with_replacement('mačka Mački Grize rep!', '_'), 'macka_macki_grize_rep')
 ```
+
+## Troubleshooting
+
+> Module parse failed: Unexpected character. You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file.
+
+That error might happen if you're using it in NextJS, or any webpack related project.
+You can fix it by including a `node-loader`. Your `next.config.js` might look like:
+```javascript
+module.exports = {
+    webpack: (config, {dev, isServer, webpack, nextRuntime}) => {
+        config.module.rules = [
+            ...config.module.rules,
+            {
+                test: /\.node$/,
+                loader: "node-loader",
+            },
+
+        ];
+
+        return config;
+    }
+}
+```
