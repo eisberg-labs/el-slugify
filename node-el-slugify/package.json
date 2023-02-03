@@ -1,6 +1,6 @@
 {
   "name": "node-el-slugify",
-  "version": "0.1.4-beta.3",
+  "version": "0.1.4-beta.4",
   "description": "Slugifies a String - transliterate and sanitize. Fast and efficient node module written in Rust.",
   "main": "index.node",
   "keywords": [
@@ -37,7 +37,8 @@
     "build-debug": "npm run build --",
     "build-release": "npm run build -- --release",
     "install": "npm run build-release",
-    "test": "mocha"
+    "test": "mocha",
+    "prepublishOnly": "rm index.node"
   },
   "dependencies": {
     "cargo-cp-artifact": "^0.1"
