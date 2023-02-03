@@ -1,6 +1,6 @@
 {
   "name": "node-el-slugify",
-  "version": "0.1.3",
+  "version": "0.1.4-beta.3",
   "description": "Slugifies a String - transliterate and sanitize. Fast and efficient node module written in Rust.",
   "main": "index.node",
   "keywords": [
@@ -10,6 +10,13 @@
     "rust",
     "node",
     "transliterate"
+  ],
+  "files": [
+    "src/**",
+    "Cargo.toml",
+    "package.json",
+    "README.md",
+    "LICENSE-MIT"
   ],
   "homepage": "https://github.com/eisberg-labs/el-slugify",
   "bugs": {
